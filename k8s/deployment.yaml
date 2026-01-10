@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: laptop-price-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: laptop-price-api
+  template:
+    metadata:
+      labels:
+        app: laptop-price-api
+    spec:
+      containers:
+        - name: laptop-price-api
+          image: laptop-price-api:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8000
